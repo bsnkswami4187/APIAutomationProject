@@ -1,0 +1,47 @@
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "location": {
+        "lat": 6.680940324243458,
+        "lng": -0.06261018899631665
+    },
+    "accuracy": 18,
+    "name": "Sunrise Mansion",
+    "phone_number": "(+91) 966 140 4711",
+    "address": "454 River Road, Hillcrest, Illinois, USA - 38718",
+    "types": [
+        "Tranquil Pond",
+        "Golden Grove"
+    ],
+    "website": "http://twitter.tech",
+    "language": "Dutch-NL"
+}
+HTTP/1.1 200 OK
+Date: Sat, 23 Aug 2025 05:27:15 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "b5c30492104cf58766df17da1b32a4f9",
+    "scope": "APP",
+    "reference": "f36773435587a1d380319f70948472b5f36773435587a1d380319f70948472b5",
+    "id": "f36773435587a1d380319f70948472b5"
+}
