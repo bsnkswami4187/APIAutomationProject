@@ -20,27 +20,33 @@ public class TestDataBuild extends GoogleMapsTestData
     	   location = new POSTLocation(lat, lng);
     	   return location;
        }
-       public GOOGLEPostRequestPayload getRequestPayloadForPOST()
+       public GOOGLEPostRequestPayload sendRequestPayloadForPOST()
        {
     	   location = new TestDataBuild().getPOSTLocation();
     	   postParams = new GOOGLEPostRequestPayload(location, accuracy, name, phone_number, address, types, website, language);
     	   return postParams;
        }
-       public LinkedHashMap<String, String> getRequestPayloadForGET(String key,String placeId)
+       public LinkedHashMap<String, String> sendRequestPayloadForGET(String key,String placeId)
        {
     	   getParams = new LinkedHashMap<String, String>();
     	   getParams.put("key", key);
     	   getParams.put("place_id", placeId);
     	   return getParams;
        }
-       public GOOGLEPutRequestPayload getRequestPayloadForPUT(String placeId) throws FileNotFoundException, IOException
+       public GOOGLEPutRequestPayload sendRequestPayloadForPUT(String placeId) throws FileNotFoundException, IOException
        {
     	   putParams = new GOOGLEPutRequestPayload(placeId, updatedAddress, GoogleConfig.getDataFromPropertyFile("apiKey"));
     	   return putParams;
        }
-       public GOOGLEDeleteRequestPayload getRequestPayloadForDELETE(String placeId)
+       public GOOGLEDeleteRequestPayload sendRequestPayloadForDELETE(String placeId)
        {
     	   deleteParams = new GOOGLEDeleteRequestPayload(placeId);
     	   return deleteParams;
+       }
+       public GOOGLEPostRequestPayload sendRequestPayloadForPOST(String phone_number, String address, String language)
+       {
+    	   location = new TestDataBuild().getPOSTLocation();
+    	   postParams = new GOOGLEPostRequestPayload(location, accuracy, name, phone_number, address, types, website, language);
+    	   return postParams;
        }
 }

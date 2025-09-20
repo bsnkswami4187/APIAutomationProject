@@ -1,0 +1,47 @@
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "location": {
+        "lat": 9.18447308806175,
+        "lng": 7.966100982639425
+    },
+    "accuracy": 17,
+    "name": "Golden Villa",
+    "phone_number": "(+91) 971 262 7971",
+    "address": "477 Pine Drive, Springfield, Illinois, USA - 12004",
+    "types": [
+        "Sunny Pond",
+        "Silver Valley"
+    ],
+    "website": "http://microsoft.org",
+    "language": "Portuguese-BR"
+}
+HTTP/1.1 200 OK
+Date: Sat, 20 Sep 2025 04:28:35 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "fbd8aced6c4312ccf2363df1608b6506",
+    "scope": "APP",
+    "reference": "227e5fc5e90cd3a34f9bb9c8d9b85d5a227e5fc5e90cd3a34f9bb9c8d9b85d5a",
+    "id": "227e5fc5e90cd3a34f9bb9c8d9b85d5a"
+}
