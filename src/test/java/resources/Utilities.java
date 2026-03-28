@@ -3,7 +3,7 @@ package resources;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-import propertyresources.GoogleConfig;
+import static propertyutilities.GoogleConfig.*;
 //import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
@@ -21,8 +21,8 @@ public class Utilities
         	 if(requestSpecification == null)
         	 {
         		 log = new PrintStream(new FileOutputStream("Logging.txt"));
-        		 requestSpecification = new RequestSpecBuilder().setBaseUri(GoogleConfig.extractDataFromFile("baseURL"))
-        		 .addQueryParam("key", GoogleConfig.extractDataFromFile("apiKey")).addFilter(RequestLoggingFilter.logRequestTo(log))
+        		 requestSpecification = new RequestSpecBuilder().setBaseUri(getDataFromPropertyFile("baseURL"))
+        		 .addQueryParam("key", getDataFromPropertyFile("apiKey")).addFilter(RequestLoggingFilter.logRequestTo(log))
         		 .addFilter(ResponseLoggingFilter.logResponseTo(log)).setContentType(ContentType.JSON).build();
         		 return requestSpecification;
         	 }

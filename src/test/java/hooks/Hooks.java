@@ -1,36 +1,42 @@
 package hooks;
-import java.io.IOException;
-import constants.GoogleMapsEndpoint;
+//import java.io.IOException;
+//import constants.GoogleMapsEndpoint;
 import googlerequestpayloads.GOOGLEPostRequestPayload;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.restassured.response.Response;
-import support.TestContext;
+//import io.restassured.response.Response;
+//import support.TestContext;
 import testdata.TestDataBuild;
 import utilities.Helper;
-import wrapper.APIMethods;
+//import wrapper.APIMethods;
 public class Hooks extends TestDataBuild
 {
-	   @SuppressWarnings("unused")
-	   private final TestContext context;
+//	   @SuppressWarnings("unused")
+//	   private final TestContext context;
 	   @SuppressWarnings("unused")
 	   private final TestDataBuild dataBuilder;
-	   private final APIMethods methods;
+//	   private final APIMethods methods;
 	   GOOGLEPostRequestPayload postParams;
 //	   private final TestDataBuild dataBuilder;
 	   public Hooks()
 	   {
-		   this.methods = new APIMethods();
+//		   this.methods = new APIMethods();
 		   this.dataBuilder = new TestDataBuild();
-		   this.context = new TestContext();
+//		   this.context = new TestContext();
 	   }
 	   public static ThreadLocal<Scenario> threadScenario = new ThreadLocal<Scenario>();
+	   public static ThreadLocal<Integer> scenarioIndex = ThreadLocal.withInitial(() -> 0);
        @Before
        public void before(Scenario scenario)
        {
     	   Helper.deleteFolder("./logs");
     	   threadScenario.set(scenario);
+       }
+       @Before
+       public void beforeScenario()
+       {
+    	   
        }
 //       @Before("@updatePlace_getAddress")
 //       public void createPlaceAndExtractPlaceID() throws IOException

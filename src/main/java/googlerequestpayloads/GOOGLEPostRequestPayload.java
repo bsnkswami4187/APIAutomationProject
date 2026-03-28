@@ -11,17 +11,6 @@ public class GOOGLEPostRequestPayload
       private ArrayList<String> types;
       private String website;
       private String language;
-      public GOOGLEPostRequestPayload(POSTLocation location,int accuracy,String name,String phone_number,String address,ArrayList<String> types,String website,String language)
-      {
-    	  this.location = location;
-    	  this.accuracy = accuracy;
-    	  this.name = name;
-    	  this.phone_number = phone_number;
-    	  this.address = address;
-    	  this.types = types;
-    	  this.website = website;
-    	  this.language = language;
-      }
 	  public POSTLocation getLocation() 
 	  {
 		return location;
@@ -85,19 +74,5 @@ public class GOOGLEPostRequestPayload
 	  public void setLanguage(String language) 
 	  {
 		this.language = language;
-	  }
-	  @Override
-	  public String toString() 
-	  {
-	   return "{\r\n"
-		  		+"\"location\":" + location + ",\r\n"
-		  		+"\"accuracy\": " + accuracy + ",\r\n"
-		  		+"\"name\": \"" + name + "\",\r\n"
-		  		+"\"phone_number\": \"" + phone_number + "\",\r\n"
-		  		+"\"address\": \"" + address + "\",\r\n"
-		  		+"\"types\":" + types + ",\r\n"
-		  		+"\"website\": \"" + website + "\",\r\n"
-		  		+"\"language\": \"" + language + "\"\r\n"
-		  		+"}";
 	  }
 }

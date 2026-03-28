@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
-
 import googlerequestpayloads.GOOGLEDeleteRequestPayload;
 import googlerequestpayloads.GOOGLEPostRequestPayload;
 import googlerequestpayloads.GOOGLEPutRequestPayload;
@@ -16,7 +15,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import utilities.Helper;
-import propertyutilities.GoogleConfig;
+import static propertyutilities.GoogleConfig.*;
 public class APIMethods 
 {
      public void getBaseURL(String baseURL)
@@ -27,7 +26,7 @@ public class APIMethods
      {
     	String logPath = "./logs/POSTfilterLog"+Helper.getCurrentDate()+".txt";		
  		PrintStream ps = new PrintStream(new File(logPath));
-    	Response postResponse = given().contentType(ContentType.JSON).queryParam("key", GoogleConfig.getDataFromPropertyFile("apiKey"))
+    	Response postResponse = given().contentType(ContentType.JSON).queryParam("key", getDataFromPropertyFile("api.key.valid"))
     	.filter(RequestLoggingFilter.logRequestTo(ps))
     	.filter(ResponseLoggingFilter.logResponseTo(ps))
     	.body(googlePostPayload).post(postEndpoint);
@@ -47,7 +46,7 @@ public class APIMethods
      {
     	 String logPath = "./logs/PUTfilterLog"+Helper.getCurrentDate()+".txt";
     	 PrintStream ps = new PrintStream(new File(logPath));
-    	 Response putResponse = given().contentType(ContentType.JSON).queryParam("key", GoogleConfig.getDataFromPropertyFile("apiKey"))
+    	 Response putResponse = given().contentType(ContentType.JSON).queryParam("key", getDataFromPropertyFile("api.key.valid"))
          .filter(RequestLoggingFilter.logRequestTo(ps)).filter(ResponseLoggingFilter.logResponseTo(ps)).body(googlePutPayload).when().put(putEndpoint); 
     	 return putResponse;
      }
@@ -68,7 +67,7 @@ public class APIMethods
      {
      	String logPath = "./logs/POSTfilterLog"+Helper.getCurrentDate()+".txt";		
   		PrintStream ps = new PrintStream(new File(logPath));
-     	Response postResponse = given().contentType(ContentType.JSON).queryParam("key", GoogleConfig.getDataFromPropertyFile("apiKey"))
+     	Response postResponse = given().contentType(ContentType.JSON).queryParam("key", getDataFromPropertyFile("api.key.valid"))
      	.filter(RequestLoggingFilter.logRequestTo(ps))
      	.filter(ResponseLoggingFilter.logResponseTo(ps))
      	.body(googlePostPayload).post(postEndpoint);

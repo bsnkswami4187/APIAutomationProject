@@ -41,3 +41,18 @@ Scenario: Verify if place is deleted successfully using DeletePlaceAPI and valid
 When user calls DeletePlaceAPI again with DELETE request
 Then the DELETE call got failed with status code 404
 And "msg" in the second DELETE response body is equal to "Delete operation failed, looks like the data doesn't exists"
+
+@addPlace_getAddress_dataDriven
+Scenario Outline: Verify if place is created successfully with data driven testing
+When user calls AddPlaceAPI with POST http request using phone number "<phone_number>", address "<address>" and language "<language>"
+#Then the POST call with data driven got successful with status code 200
+#And verify that place_id is not null in the POST response
+#When user calls GetPlaceAPI with GET http request
+Then the GET call got successful with status code 200 by place_id
+And address in the GET response body should match with "<address>"
+Examples:
+| phone_number         | address                                | language |
+| (+91) 959 156 2894 | ITPL, Whitefield, Bengaluru | Telugu    |
+| (+91) 998 934 9104 | Uppal Depot, Hyderabad     | Telugu    |
+| (+91) 967 667 5720 | Chanda Nagar, Hyderabad   | Telugu   | 
+

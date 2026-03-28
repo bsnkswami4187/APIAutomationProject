@@ -4,12 +4,6 @@ public class GOOGLEPutRequestPayload
        private String place_id;
        private String address;
        private String key;
-       public GOOGLEPutRequestPayload(String place_id,String address,String key)
-       {
-    	   this.place_id = place_id;
-    	   this.address = address;
-    	   this.key = key;
-       }
 	   public String getPlace_id() 
 	   {
 		return place_id;
@@ -33,14 +27,5 @@ public class GOOGLEPutRequestPayload
 	   public void setKey(String key) 
 	   {
 		this.key = key;
-	   }
-	   @Override
-	   public String toString() 
-	   {
-	   return "{\r\n"
-		   		+"\"place_id\": \"" + place_id + "\",\r\n"
-		   		+"\"address\": \"" + address + "\",\r\n"
-		   		+"\"key\": \"" + key + "\"\r\n"
-		   		+"}";
 	   }
 }

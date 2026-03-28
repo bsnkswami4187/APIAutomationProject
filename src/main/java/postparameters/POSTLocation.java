@@ -3,11 +3,6 @@ public class POSTLocation
 {
       private double lat;
       private double lng;
-	  public POSTLocation(double lat, double lng) 
-	  {
-		this.lat = lat;
-		this.lng = lng;
-	  }
 	  public double getLat() 
 	  {
 		return lat;
@@ -24,12 +19,4 @@ public class POSTLocation
 	  {
 		this.lng = lng;
 	  }
-	  @Override
-	  public String toString() 
-	  {
-	   return "{\r\n"
-		  		+"\"lat\": " + lat + ",\r\n"
-		  		+"\"lng\": " + lng + "\r\n"
-		  		+"}";
-	  }	  
 }

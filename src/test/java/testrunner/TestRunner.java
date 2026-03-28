@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 		features = "src/test/resources/features",
 		glue = {"stepdefinition","hooks"},
 		plugin = {"pretty","html:reports/Cucumber-GoogleMaps.html"},
-		tags = "@addPlace_getAddress or @updatePlace_getAddress or @deletePlace_getAddress or @deletePlace_afterDelete",
+		tags = "@addPlace_getAddress or @updatePlace_getAddress or @deletePlace_getAddress or @deletePlace_afterDelete or @addPlace_getAddress_dataDriven",
 		dryRun = false,
 		publish = true
 		)
