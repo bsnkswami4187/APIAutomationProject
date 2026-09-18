@@ -1,0 +1,21 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Maven
+target/
+
+# Test reports
+test-output/
+reports/
+
+# Logs
+logs/
+
+# Local configuration / secrets
+config.properties
