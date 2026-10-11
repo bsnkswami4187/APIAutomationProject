@@ -1,5 +1,7 @@
 package enums;
-public enum Endpoints
+import lombok.Getter;
+@Getter
+public enum PlaceEndpoints
 {
     CREATE_PLACE("maps/api/place/add/json"),
     RETRIEVE_PLACE("maps/api/place/get/json"),
@@ -8,13 +10,9 @@ public enum Endpoints
 
     private final String endpoint;
 
-    Endpoints(String endpoint)
+    PlaceEndpoints(String endpoint)
     {
         this.endpoint = endpoint;
     }
 
-    public String getEndpoint()
-    {
-        return endpoint;
-    }
 }

@@ -1,7 +1,7 @@
 package wrapper;
 import static io.restassured.RestAssured.given;
 import static utilities.LoggingUtilities.*;
-import enums.HttpMethod;
+import enums.RestAssuredHttpMethod;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -9,9 +9,9 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.filter.Filter;
 import java.io.IOException;
 import java.util.Map;
-public class RequestUtilities
+public class PlaceRequestUtilities
 {
-    public RequestSpecification baseRequestSpec(String baseUrl, String apiKey, boolean includeAPIKey, ContentType requestType)
+    public RequestSpecification baseRequestSpec(String baseUrl, String apiKey, ContentType requestType)
     {
         if (baseUrl == null || baseUrl.isEmpty())
         {
@@ -29,7 +29,7 @@ public class RequestUtilities
             return jsonResponse;
         });
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder().setBaseUri(baseUrl).addFilter(requestFilter).addFilter(responseFilter);
-        if (includeAPIKey)
+        if (apiKey != null && !apiKey.trim().isEmpty())
         {
             requestSpecBuilder.addQueryParam("key", apiKey);
         }
@@ -39,7 +39,7 @@ public class RequestUtilities
         }
         return requestSpecBuilder.build();
     }
-    public Response sendRequest(HttpMethod httpMethod, String baseUrl, boolean includeAPIKey, String apiKey, Object requestPayload, Map<String, Object> queryParams, String endPoint) throws IOException
+    public Response sendRequest(RestAssuredHttpMethod httpMethod, String baseUrl, String apiKey, Object requestPayload, Map<String, Object> queryParams, String endPoint) throws IOException
     {
        if(httpMethod == null)
        {
@@ -49,24 +49,13 @@ public class RequestUtilities
        {
            throw new IllegalArgumentException(" Endpoint cannot be null or empty ");
        }
-       if(httpMethod == HttpMethod.GET && (queryParams == null || queryParams.isEmpty()))
-       {
-           throw new IllegalArgumentException(" Place ID cannot be null or empty for a GET request ");
-       }
-       if(httpMethod != HttpMethod.GET && requestPayload == null)
-       {
-           throw new IllegalArgumentException(" Request Payload cannot be null for " + httpMethod + " request ");
-       }
-       ContentType requestType = httpMethod == HttpMethod.GET ? null : ContentType.JSON;
-       RequestSpecification request = given().spec(baseRequestSpec(baseUrl, apiKey, includeAPIKey, requestType));
-       if(httpMethod == HttpMethod.GET)
+       ContentType requestType = httpMethod == RestAssuredHttpMethod.GET ? null : ContentType.JSON;
+       RequestSpecification request = given().spec(baseRequestSpec(baseUrl, apiKey, requestType));
+       if(httpMethod == RestAssuredHttpMethod.GET)
        {
            request.queryParams(queryParams);
        }
-       else
-       {
-           request.body(requestPayload);
-       }
+       request = requestPayload != null ? request.body(requestPayload) : request;
        switch (httpMethod)
        {
            case POST :

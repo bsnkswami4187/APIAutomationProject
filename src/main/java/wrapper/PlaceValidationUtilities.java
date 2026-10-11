@@ -1,13 +1,13 @@
 package wrapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.restassured.response.Response;
-import wrapper.ResponseUtilities;
+
 import java.io.IOException;
 import static org.assertj.core.api.Assertions.*;
-public class ValidationUtilities
+public class PlaceValidationUtilities
 {
-    private final ResponseUtilities responseUtilities;
-    public ValidationUtilities(ResponseUtilities responseUtilities)
+    private final PlaceResponseUtilities responseUtilities;
+    public PlaceValidationUtilities(PlaceResponseUtilities responseUtilities)
     {
         if(responseUtilities == null)
         {
