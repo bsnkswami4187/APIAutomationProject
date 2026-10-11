@@ -19,3 +19,5 @@ logs/
 
 # Local configuration / secrets
 config.properties
+src/main/java/config/google_config.json
+src/main/java/config/post_request_payload.json

@@ -1,5 +1,5 @@
 package enums;
-public enum HttpMethod
+public enum PlaceHttpMethod
 {
     POST,
     GET,

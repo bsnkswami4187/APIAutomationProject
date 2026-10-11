@@ -1,7 +1,7 @@
 package utilities;
 import com.aventstack.extentreports.ExtentTest;
 
-public class ExtentTestManagerSetName
+public class ExtentTestManager
 {
     public static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
     public static void setTest(ExtentTest test)

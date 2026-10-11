@@ -8,10 +8,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-public class ExtentManagerGenerateReports
+public class ExtentManager
 {
-    public static final Logger logger = LoggerFactory.getLogger(ExtentManagerGenerateReports.class);
-    private ExtentManagerGenerateReports()
+    public static final Logger logger = LoggerFactory.getLogger(ExtentManager.class);
+    private ExtentManager()
     {
 
     }

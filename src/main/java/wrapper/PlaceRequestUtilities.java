@@ -1,7 +1,7 @@
 package wrapper;
 import static io.restassured.RestAssured.given;
-import static utilities.RequestResponseLoggingUtilities.*;
-import enums.HttpMethod;
+import static utilities.LoggingUtilities.*;
+import enums.PlaceHttpMethod;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -9,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.filter.Filter;
 import java.io.IOException;
 import java.util.Map;
-public class RequestUtilities
+public class PlaceRequestUtilities
 {
     public RequestSpecification baseRequestSpec(String baseUrl, String apiKey, ContentType requestType)
     {
@@ -39,7 +39,7 @@ public class RequestUtilities
         }
         return requestSpecBuilder.build();
     }
-    public Response sendRequest(HttpMethod httpMethod, String baseUrl, String apiKey, Object requestPayload, Map<String, Object> queryParams, String endPoint) throws IOException
+    public Response sendRequest(PlaceHttpMethod httpMethod, String baseUrl, String apiKey, Object requestPayload, Map<String, Object> queryParams, String endPoint) throws IOException
     {
        if(httpMethod == null)
        {
@@ -49,9 +49,9 @@ public class RequestUtilities
        {
            throw new IllegalArgumentException(" Endpoint cannot be null or empty ");
        }
-       ContentType requestType = httpMethod == HttpMethod.GET ? null : ContentType.JSON;
+       ContentType requestType = httpMethod == PlaceHttpMethod.GET ? null : ContentType.JSON;
        RequestSpecification request = given().spec(baseRequestSpec(baseUrl, apiKey, requestType));
-       if(httpMethod == HttpMethod.GET)
+       if(httpMethod == PlaceHttpMethod.GET)
        {
            request.queryParams(queryParams);
        }

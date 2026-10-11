@@ -2,14 +2,14 @@ package testdata;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import static constants.GoogleMapsConfiguration.*;
+import static constants.GoogleMapsAPIConfiguration.*;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import static utilities.RandomTestData.*;
+import static utilities.RandomUtilities.*;
 
-public class PlaceTestDataBuild
+public class TestDataBuild
 {
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     public ObjectNode postPayload()

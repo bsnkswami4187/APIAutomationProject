@@ -4,10 +4,10 @@ import io.restassured.response.Response;
 
 import java.io.IOException;
 import static org.assertj.core.api.Assertions.*;
-public class ValidationUtilities
+public class PlaceValidationUtilities
 {
-    private final ResponseUtilities responseUtilities;
-    public ValidationUtilities(ResponseUtilities responseUtilities)
+    private final PlaceResponseUtilities responseUtilities;
+    public PlaceValidationUtilities(PlaceResponseUtilities responseUtilities)
     {
         if(responseUtilities == null)
         {

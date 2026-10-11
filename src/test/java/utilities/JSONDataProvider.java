@@ -5,11 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-public class JSONDataProviderExample
+public class JSONDataProvider
 {
     public static final String filePath = "src/main/java/config/";
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-    private JSONDataProviderExample()
+    private JSONDataProvider()
     {
 
     }

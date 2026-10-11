@@ -9,9 +9,9 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class ResponseUtilities
+public class PlaceResponseUtilities
 {
-    public static final Logger logger = LoggerFactory.getLogger(ResponseUtilities.class);
+    public static final Logger logger = LoggerFactory.getLogger(PlaceResponseUtilities.class);
     public static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     public static String FILE_PATH = "src/test/java/responses/";
     public <T> T extractJSONValueWithRESTAssured(Response jsonResponse, String jsonKey, Class<T> dataType)

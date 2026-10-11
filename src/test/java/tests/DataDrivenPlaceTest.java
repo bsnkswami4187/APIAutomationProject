@@ -1,16 +1,16 @@
 package tests;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import enums.Endpoints;
-import enums.HttpMethod;
+import enums.PlaceEndpoints;
+import enums.PlaceHttpMethod;
 import io.restassured.response.Response;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Map;
-import static utilities.JSONDataProviderExample.*;
-import static constants.GoogleMapsConfiguration.*;
-public class DataDrivenPlaceTest extends BasePlaceTest
+import static utilities.JSONDataProvider.*;
+import static constants.GoogleMapsAPIConfiguration.*;
+public class DataDrivenPlaceTest extends BaseTest
 {
     @Override
     protected String getTestType()
@@ -31,7 +31,7 @@ public class DataDrivenPlaceTest extends BasePlaceTest
     {
         propertyKeys = getConfiguration();
         postRequestPayload = testDataBuild.postPayload(testData.get("name"), testData.get("phone_number"), testData.get("address"));
-        postResponse = requestUtilities.sendRequest(HttpMethod.POST, propertyKeys.get("base.url"), propertyKeys.get("api.key.valid"), postRequestPayload, null, Endpoints.CREATE_PLACE.getEndpoint());
+        postResponse = requestUtilities.sendRequest(PlaceHttpMethod.POST, propertyKeys.get("base.url"), propertyKeys.get("api.key.valid"), postRequestPayload, null, PlaceEndpoints.CREATE_PLACE.getEndpoint());
         responseUtilities.validateStatusCode(postResponse, 200);
     }
 }

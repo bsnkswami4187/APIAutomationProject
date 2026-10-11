@@ -1,7 +1,7 @@
 package utilities;
-import static utilities.ExtentTestManagerSetName.getTest;
+import static utilities.ExtentTestManager.getTest;
 
-public class ExtentLoggerDisplayMessage
+public class ExtentLogger
 {
     public static void pass(String message)
     {
