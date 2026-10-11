@@ -1,5 +1,5 @@
 package enums;
-public enum RestAssuredHttpMethod
+public enum HttpMethod
 {
     POST,
     GET,

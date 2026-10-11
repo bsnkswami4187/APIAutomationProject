@@ -3,9 +3,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class LoggingUtilities
+public class RequestResponseLoggingUtilities
 {
-    public static final Logger logger = LoggerFactory.getLogger(LoggingUtilities.class);
+    public static final Logger logger = LoggerFactory.getLogger(RequestResponseLoggingUtilities.class);
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     public static String getFormattedJSON(String jsonPayload)
     {
@@ -26,7 +26,7 @@ public class LoggingUtilities
         logger.info(" Request URL : {} ", requestUrl);
         if(requestPayload != null)
         {
-            logger.info(" Request Payload : \n{} ", LoggingUtilities.getFormattedJSON(requestPayload.toString()));
+            logger.info(" Request Payload : \n{} ", RequestResponseLoggingUtilities.getFormattedJSON(requestPayload.toString()));
         }
         else
         {
@@ -38,7 +38,7 @@ public class LoggingUtilities
     {
         logger.info(" =================================================== ");
         logger.info(" Response Status Code : {} ", jsonResponse.getStatusCode());
-        logger.info(" Response Payload : \n{} ", LoggingUtilities.getFormattedJSON(jsonResponse.getBody().asString()));
+        logger.info(" Response Payload : \n{} ", RequestResponseLoggingUtilities.getFormattedJSON(jsonResponse.getBody().asString()));
         logger.info(" =================================================== ");
     }
 }
